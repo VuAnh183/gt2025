@@ -25,22 +25,19 @@ def print_graph(graph):
   for vertex, neighbours in graph.items():
     print(f"{vertex}: {neighbours}")
 
-def path_existance(graph, start, end):
-  for vertex, neighbour in graph.items():
-    if(vertex == start):
-      if(end in neighbour):
+def path_existance(g, s, t):
+  for vertex, neighbour in g.items():
+    if(vertex == s):
+      if(t in neighbour):
         return True
   
   return False
 
 if __name__ == '__main__':
   graph = create_graph(edges)
-  # print_graph(graph)
+  print_graph(graph)
   
   start = int(input("Enter a starting node: "))
   end = int(input("Enter a destination node: "))
   
-  if(path_existance(graph, start, end) == True):
-    print(True)
-  else:
-    print(False)
+  print(path_existance(graph, start, end))
